@@ -28,7 +28,7 @@
 
 - 로우 lock을 설정하기에 앞서 테이블 lock을 먼저 설정
 - 테이블 lock에는 여러가지 모드가 있다.
-    - null, rs(row share), rx(row exclusive), s(share), srx(share row exclusive), x(exclusive)
+  - null, rs(row share), rx(row exclusive), s(share), srx(share row exclusive), x(exclusive)
 - 테이블 락은 어떤 모드를 사용했는지에 따라 후행 트랜잭션이 수행할 수 있는 작업의 범위가 결정된다.
 
 MariaDB
@@ -40,13 +40,13 @@ MariaDB
     - select, update, delete 모두 변경될 데이터에 접근하지 못한다.
     - isolation level에 따라 트랜잭션의 접근허용 여부가 달라진다.
 
-  | isolation level | dirty read | non-repeatable read | phantom-read |  |
-      | --- | --- | --- | --- | --- |
-  | read-uncommitted | o | o | o | 변경 되고 있을 경우에도 모두 접근 허용 |
-  | read-committed | x | o | o | 반복되는 조회는 보장이 안됨 |
-  | repeatable-read | x | x | o(mariadb에서는 x) | 반복되는 조회는 보장이 안됨 |
-  | serializable | x | x | x |  |
-    - 출처
+| isolation level | dirty read | non-repeatable read | phantom-read |  |
+| --- | --- | --- | --- | --- |
+| read-uncommitted | o | o | o | 변경 되고 있을 경우에도 모두 접근 허용 |
+| read-committed | x | o | o | 반복되는 조회는 보장이 안됨 |
+| repeatable-read | x | x | o(mariadb에서는 x) | 반복되는 조회는 보장이 안됨 |
+| serializable | x | x | x |  |
+- 출처
 
       [https://dbknowledge.tistory.com/23](https://dbknowledge.tistory.com/23)
 
